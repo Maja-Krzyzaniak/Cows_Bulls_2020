@@ -6,6 +6,7 @@ using namespace std;
 void PrintIntro();
 void PlayGame();
 string GetGuess();
+bool AskToPlayAgain();
 
 
 // the entry point for our application
@@ -13,6 +14,8 @@ int main()
 {
 	PrintIntro();
 	PlayGame();
+	AskToPlayAgain();
+
 	return 0; // exit the application
 }
 
@@ -46,4 +49,14 @@ string GetGuess()
 	string Guess = "";
 	getline(cin, Guess);
 	return Guess;
+}
+
+bool AskToPlayAgain()
+{
+	cout << "Do you want to play again? ";
+	string Response = "";
+	getline(cin, Response);
+	Response[0];
+
+	return false;
 }
