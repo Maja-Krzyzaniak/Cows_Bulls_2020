@@ -13,6 +13,8 @@ FCowBullGame CBGame; // instantiate a new game
 // the entry point for our application
 int main() 
 {
+	std::cout << CBGame.GetCurrentTry();
+
 	bool bPlayAgain = false;
 	do {
 		PrintIntro();
@@ -36,6 +38,7 @@ void PrintIntro()
 
 void PlayGame()
 {
+	CBGame.Reset();
 	int MaxTries = CBGame.GetMaxTries();
 	
 	// loop for the number of turns asking for guesses

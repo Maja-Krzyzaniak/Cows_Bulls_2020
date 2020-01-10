@@ -1,11 +1,16 @@
 #include "FCowBullGame.h"
 
+FCowBullGame::FCowBullGame() { Reset(); }
+
 int FCowBullGame::GetMaxTries() const { return MyMaxTries; }
 int FCowBullGame::GetCurrentTry() const { return MyCurrentTry; }
 
 void FCowBullGame::Reset()
 {
-	return;
+	constexpr int MAX_TRIES = 8;
+	MyMaxTries = MAX_TRIES;
+
+	MyCurrentTry = 1;
 }
 
 bool FCowBullGame::IsGameWon() const
