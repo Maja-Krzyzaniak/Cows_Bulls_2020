@@ -25,9 +25,9 @@ bool FCowBullGame::IsGameWon() const
 	return false;
 }
 
-bool FCowBullGame::CheckGuessValidity(FString) const
+EWordStatus FCowBullGame::CheckGuessValidity(FString) const
 {
-	return false;
+	return EWordStatus::OK; // TODO make actual error
 }
 
 // receives a VALID guess, incriments turn, and returns count
