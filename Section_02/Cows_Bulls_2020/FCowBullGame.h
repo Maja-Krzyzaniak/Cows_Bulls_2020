@@ -32,7 +32,7 @@ public:
 	EGuessStatus CheckGuessValidity(FString) const;
 
 	void Reset(); // TODO make a more rich return value.
-	FCowBullCount SubmitGuess(FString);
+	FCowBullCount SubmitValidGuess(FString);
 
 
 	// ^^ Please try and ignore this and focus on the interface above ^^

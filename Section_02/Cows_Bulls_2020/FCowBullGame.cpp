@@ -47,20 +47,17 @@ EGuessStatus FCowBullGame::CheckGuessValidity(FString Guess) const
 }
 
 // receives a VALID guess, incriments turn, and returns count
-FCowBullCount FCowBullGame::SubmitGuess(FString Guess)
+FCowBullCount FCowBullGame::SubmitValidGuess(FString Guess)
 {
-	// incriment the turn number
 	MyCurrentTry++;
-
-	// setup return variable
 	FCowBullCount CowBullCount; 
+	int32 WordLenght = MyHiddenWord.length(); // assuming same lenght as guess
 
-	// loop through all letters in the guess
-	int32 HiddenWordLenght = MyHiddenWord.length();
-	for (int32 MHWChar = 0; MHWChar < HiddenWordLenght; MHWChar++) 
+	// loop through all letters in the hidden word
+	for (int32 MHWChar = 0; MHWChar < WordLenght; MHWChar++) 
 	{
-		// compare letters against hidden word
-		for (int32 GChar = 0; GChar < HiddenWordLenght; GChar++) 
+		// compare letters against the guess
+		for (int32 GChar = 0; GChar < WordLenght; GChar++) 
 		{
 			// if they match then
 			if (Guess[GChar] == MyHiddenWord[MHWChar]) {
