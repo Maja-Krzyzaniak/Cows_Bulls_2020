@@ -25,9 +25,25 @@ bool FCowBullGame::IsGameWon() const
 	return false;
 }
 
-EWordStatus FCowBullGame::CheckGuessValidity(FString) const
+EGuessStatus FCowBullGame::CheckGuessValidity(FString Guess) const
 {
-	return EWordStatus::OK; // TODO make actual error
+	if (false) // if the guess isn't isogram
+	{
+		return EGuessStatus::Not_Isogram;
+	}
+	else if (false) // if the guess isn't all lowercase
+	{
+		return EGuessStatus::Not_Lowercase;
+	}
+	else if (Guess.length() != GetHiddenWordLength()) // if the guess lenght is wrong
+	{
+		return EGuessStatus::Wrong_Lenght;
+	}
+	else
+	{
+		return EGuessStatus::OK;
+	}
+	
 }
 
 // receives a VALID guess, incriments turn, and returns count
