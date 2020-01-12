@@ -78,15 +78,22 @@ FCowBullCount FCowBullGame::SubmitValidGuess(FString Guess)
 	return CowBullCount;
 }
 
-bool FCowBullGame::IsIsogram(FString) const
+bool FCowBullGame::IsIsogram(FString Word) const
 {
 	// treat 0 and 1 letter words as isogram
+	if (Word.length() <= 1) { return true; }
 
-	// loop through all the letters of the word
-		// if the letter is in the map
-			// we do NOT have isogram
-		// otherwise
-			// add the letter to the map as seen
-
+	TMap<char, bool> LetterSeen; // setup our map
+	for (auto Letter : Word) // for all letters of the word
+	{
+		Letter = tolower(Letter); // handle mixed case
+		if (LetterSeen[Letter]) {// if the letter is in the map
+			return false; // we do NOT have isogram
+		}
+		else
+		{
+			LetterSeen[Letter] = true; // add the letter to the map as seen
+		}
+	}
 	return true; // for example in cases when 0/ is entered
 }
