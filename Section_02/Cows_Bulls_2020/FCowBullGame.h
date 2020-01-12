@@ -13,6 +13,7 @@ struct FCowBullCount
 
 enum class EGuessStatus
 {
+	Invalid_Status,
 	OK,
 	Wrong_Lenght,
 	Not_Isogram,
