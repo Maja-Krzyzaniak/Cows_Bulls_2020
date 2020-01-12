@@ -12,7 +12,7 @@ void FCowBullGame::Reset()
 	constexpr int32 MAX_TRIES = 8;
 	MyMaxTries = MAX_TRIES;
 
-	const FString HIDDEN_WORD = "planet";
+	const FString HIDDEN_WORD = "ant";
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -30,16 +30,30 @@ bool FCowBullGame::CheckGuessValidity(FString)
 }
 
 // receives a VALID guess, incriments turn, and returns count
-CowBullCount FCowBullGame::SubmitGuess(FString)
+FCowBullCount FCowBullGame::SubmitGuess(FString Guess)
 {
 	// incriment the turn number
 	MyCurrentTry++;
 
 	// setup return variable
-	CowBullCount CowBullCount; 
+	FCowBullCount CowBullCount; 
 
 	// loop through all letters in the guess
-       // compare letters against hidden word
-
+	int32 HiddenWordLenght = MyHiddenWord.length();
+	for (int32 i = 0; i < HiddenWordLenght; i++) {
+		// compare letters against hidden word
+		for (int32 j = 0; j < HiddenWordLenght; j++) {
+			// if they match then
+			if (Guess[i] == MyHiddenWord[i]) {
+				
+				if (i == j) {  // if they're in the same place
+					CowBullCount.Bulls++; // incriment bulls
+				}
+				else {
+					CowBullCount.Cows++; // incriment cows
+				}
+			}
+		}
+	}
 	return CowBullCount;
 }
