@@ -7,14 +7,15 @@ FCowBullGame::FCowBullGame() { Reset(); }
 int32 FCowBullGame::GetMaxTries() const { return MyMaxTries; }
 int32 FCowBullGame::GetCurrentTry() const { return MyCurrentTry; }
 
+int32 FCowBullGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
+
 void FCowBullGame::Reset()
 {
 	constexpr int32 MAX_TRIES = 8;
+	const FString HIDDEN_WORD = "planet"; 
+	
 	MyMaxTries = MAX_TRIES;
-
-	const FString HIDDEN_WORD = "ant";
 	MyHiddenWord = HIDDEN_WORD;
-
 	MyCurrentTry = 1;
 	return;
 }
@@ -24,7 +25,7 @@ bool FCowBullGame::IsGameWon() const
 	return false;
 }
 
-bool FCowBullGame::CheckGuessValidity(FString)
+bool FCowBullGame::CheckGuessValidity(FString) const
 {
 	return false;
 }

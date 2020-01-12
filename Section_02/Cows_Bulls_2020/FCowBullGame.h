@@ -18,10 +18,13 @@ public:
 
 	int32 GetMaxTries() const;
 	int32 GetCurrentTry() const;
+	int32 GetHiddenWordLength() const;
+
 	bool IsGameWon() const;
+	bool CheckGuessValidity(FString) const;
 
 	void Reset(); // TODO make a more rich return value.
-	bool CheckGuessValidity(FString); // TODO make a more rich return value.
+ // TODO make a more rich return value.
 	FCowBullCount SubmitGuess(FString);
 
 
