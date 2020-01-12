@@ -28,7 +28,7 @@ EGuessStatus FCowBullGame::CheckGuessValidity(FString Guess) const
 	{
 		return EGuessStatus::Not_Isogram; 
 	}
-	else if (false) // if the guess isn't all lowercase 
+	else if (!IsLowercase(Guess)) // if the guess isn't all lowercase 
 	{
 		return EGuessStatus::Not_Lowercase; // TODO write a function
 	}
@@ -96,4 +96,16 @@ bool FCowBullGame::IsIsogram(FString Word) const
 		}
 	}
 	return true; // for example in cases when 0/ is entered
+}
+
+bool FCowBullGame::IsLowercase(FString Word) const
+{
+	for (auto Letter : Word)
+	{
+		if (!islower(Letter)) // if not a lowercase letter
+		{
+			return false;
+		}
+	}
+	return true;
 }
