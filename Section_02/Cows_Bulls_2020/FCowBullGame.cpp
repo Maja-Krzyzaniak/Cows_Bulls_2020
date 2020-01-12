@@ -12,7 +12,7 @@ bool FCowBullGame::IsGameWon() const { return bGameIsWon; }
 
 void FCowBullGame::Reset()
 {
-	constexpr int32 MAX_TRIES = 8;
+	constexpr int32 MAX_TRIES = 3;
 	const FString HIDDEN_WORD = "planet"; 
 	
 	MyMaxTries = MAX_TRIES;
