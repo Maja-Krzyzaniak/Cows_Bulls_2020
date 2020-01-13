@@ -1,6 +1,10 @@
+#pragma once
+
 #include "FCowBullGame.h"
 #include <map>
-#define TMap std::map 
+
+// to make syntax Unreal friendly
+#define TMap std::map
 using int32 = int;
 
 FCowBullGame::FCowBullGame() { Reset(); } // default constructor
@@ -10,14 +14,15 @@ int32 FCowBullGame::GetCurrentTry() const { return MyCurrentTry; }
 int32 FCowBullGame::GetHiddenWordLength() const { return MyHiddenWord.length(); }
 bool FCowBullGame::IsGameWon() const { return bGameIsWon; }
 
-int32 FCowBullGame::GetMaxTries() const {
+int32 FCowBullGame::GetMaxTries() const 
+{
 	TMap<int32, int32> WordLengthToMaxTries{ {3,4}, {4,7}, {5,10}, {6,16}, {7,20} };
 	return WordLengthToMaxTries[MyHiddenWord.length()];
 }
 
 void FCowBullGame::Reset()
 {
-	const FString HIDDEN_WORD = "szajcik"; 
+	const FString HIDDEN_WORD = "szajcik"; // this MUST be an isogram
 	MyHiddenWord = HIDDEN_WORD;
 
 	MyCurrentTry = 1;
@@ -33,7 +38,7 @@ EGuessStatus FCowBullGame::CheckGuessValidity(FString Guess) const
 	}
 	else if (!IsLowercase(Guess)) // if the guess isn't all lowercase 
 	{
-		return EGuessStatus::Not_Lowercase; // TODO write a function
+		return EGuessStatus::Not_Lowercase;
 	}
 	else if (Guess.length() != GetHiddenWordLength()) // if the guess lenght is wrong
 	{
